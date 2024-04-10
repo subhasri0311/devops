@@ -12,7 +12,7 @@ pipeline {
             steps {
                 
 
-                dir('D:/maven/my-app') {
+                 {
 			bat 'mvn compile'
                     bat 'mvn package'
 			
@@ -21,7 +21,7 @@ pipeline {
         }
 	    stage('Test'){
 		    steps{
-			    dir('D:/maven/my-app') {
+			    {
 			    bat 'mvn test'
 		    }
 		    }
@@ -30,7 +30,7 @@ pipeline {
         
         stage('Run') { 
             steps {
-	    dir('D:/maven/my-app'){
+	    {
                 bat "java -cp target/classes com.mycompany.app.App 2"
             }
 	    }
